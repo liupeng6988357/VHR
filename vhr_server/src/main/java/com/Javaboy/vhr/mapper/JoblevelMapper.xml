@@ -9,8 +9,16 @@
     <result column="enabled" property="enabled" jdbcType="BIT" />
   </resultMap>
 
+  <insert id="addJobLevel" parameterType="com.Javaboy.vhr.bean.Joblevel" >
+    insert into joblevel(name,titlelevel,createDate,enabled)
+    values(#{name},#{titlelevel},#{createDate},#{enabled})
+  </insert>
 
-  <select id="getAllJobLevel" resultMap="BaseResultMap">
+  <select id="getJobLevelByName" resultMap="BaseResultMap" >
+    select * from joblevel where name = #{name}
+  </select>
+
+  <select id="getAllJobLevels" resultMap="BaseResultMap">
     select * from joblevel
   </select>
 

@@ -8,7 +8,13 @@
     <result column="depPath" property="deppath" jdbcType="VARCHAR" />
     <result column="enabled" property="enabled" jdbcType="BIT" />
     <result column="isParent" property="isparent" jdbcType="BIT" />
+
   </resultMap>
+
+  <select id="deleteDepById" parameterType="com.Javaboy.vhr.bean.Department" statementType="CALLABLE">
+    call deleteDep(#{id,mode=IN,jdbcType=INTEGER},#{result,mode=OUT,jdbcType=INTEGER})
+  </select>
+
 
   <resultMap id="BaseResultMap2" type="com.Javaboy.vhr.bean.Department" extends="BaseResultMap">
     <collection property="children" ofType="com.Javaboy.vhr.bean.Department"

@@ -39,7 +39,7 @@ public class Joblevel {
         this.titlelevel = titlelevel == null ? null : titlelevel.trim();
     }
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss",timezone = "Asia/Shanghai")
     public Date getCreatedate() {
         return createdate;
     }

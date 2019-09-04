@@ -1,21 +1,22 @@
 package com.Javaboy.vhr.mapper;
 
 import com.Javaboy.vhr.bean.Joblevel;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 public interface JoblevelMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Joblevel record);
+    Joblevel getJobLevelByName(String name);
 
-    int insertSelective(Joblevel record);
+    int addJobLevel(@Param("jobLevel") Joblevel jobLevel);
 
-    Joblevel selectByPrimaryKey(Integer id);
+    List<Joblevel> getAllJobLevels();
 
-    int updateByPrimaryKeySelective(Joblevel record);
+    int deleteJobLevelById(@Param("ids") String[] ids);
 
-    int updateByPrimaryKey(Joblevel record);
+    int updateJobLevel(@Param("jobLevel") Joblevel jobLevel);
 
-    List<Joblevel> getAllJobLevel();
+    int addJobLevel(String name, String titleLevel, String createDate, boolean enabled);
 }
